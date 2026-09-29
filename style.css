@@ -1,0 +1,1448 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: #f5f2e9;
+  color: #3e2012;
+  overflow-x: hidden;
+}
+.overall {
+  width: 100%;
+  position:relative;
+}
+.scroll{
+  position:relative;
+}
+.coffee-layer{
+  position:absolute;
+  inset:0;
+}
+/* Container dimensions */
+.boba-drink-container {
+  position: sticky;
+  left: 50%;
+  top: 50%;
+  width: 400px; 
+  height: 550px; 
+  z-index: 10;
+  animation: moveCoffeeTimeline linear both;
+  animation-timeline: scroll();
+  animation-range: 0px 1900px;
+}
+.boba-drink-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  display: block;
+  animation: rotateHorizontal 1.2s ease-out forwards;
+}
+@keyframes moveCoffeeTimeline {
+  /* 1. Hero */
+  0% {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+
+  }
+  /* 2. About section */
+  45% {
+    left: 48%;
+    top: 50%;
+    transform: translate(-50%, -45%) rotate(20deg) scale(1);
+    opacity: 1;
+
+  }
+  /* 3. Features section */
+  85% {
+    left: 50%;
+    top: 68%;
+    transform: translate(-55%, -18%) rotate(-36deg) scale(1);
+    opacity: 1;
+
+  }
+  /* 4. Disappear */
+  100% {
+    left: 50%;
+    top: 108%;
+    transform: translate(-55%, -20%) rotate(-39deg) scale(1);
+    opacity:1;
+  }
+}
+@keyframes rotateHorizontal {
+  0% {
+    opacity: 0;
+    transform: rotate(120deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+/* HOME SECTION*/
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  padding-top: 140px;
+}
+.top {
+  display: flex;
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 80px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+.logo-icon {
+  width: 45px;
+  height: auto;
+}
+#nav-toggle,
+.menu-icon {
+  display: none;
+}
+.co {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+.co a {
+  text-decoration: none;
+  color: #3e2012;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 5px;
+  position: relative;
+}
+.co a::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  height: 0%;
+  top: 0px;
+  width: 0%;
+  left: 0px;
+  background-color: #7a2e0b;
+  transition: all 0.5s ease;
+}
+.co a:hover::before {
+  width: 100%;
+  height: 100%;
+}
+.brown-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 115%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right bottom;
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-left {
+  position: absolute;
+  left: 8%;
+  bottom: 25%;
+  z-index: 5;
+  max-width: 380px;
+  animation: slideLeftToRight 1.2s ease-out forwards;
+}
+.title-bubble {
+  color: #63361d;
+  font-size: 110px;
+  line-height: 0.9;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+@keyframes slideLeftToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.home-description {
+    font-size: 16px;
+    color: #0b0101;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+.buy-btn {
+  background-color: #63361d;
+  color: #ffffff;
+  padding: 14px 36px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.hero-right-text {
+  position: absolute;
+  right: 170px;
+  bottom: 120px;
+  z-index: 5;
+  color: #f5f2e9;
+  text-align: left;
+  animation: slideRightToLeft 1.2s ease-out forwards;
+}
+.tagline {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+.title-coffee {
+  font-size: 110px;
+  line-height: 0.9;
+  letter-spacing: 2px;
+}
+@keyframes slideRightToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ABOUT SECTION */
+.about-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 110px 0 110px;
+  z-index: 5;
+}
+.about-left {
+  z-index: 10;
+  width: 60%;
+}
+.meet-title {
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+.c-color {
+  color: #63361d;
+}
+.catchphrase {
+  font-size: 58px;
+  line-height: 1.1;
+  color: #3e2012;
+  gap: 15px;
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+.about-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #5d4638;
+  margin-bottom: 30px;
+  width: 350px;
+}
+.shop-btn {
+  background-color: #63361d;
+  color: #ffffff;
+  padding: 14px 36px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.about-gallery {
+  position: relative;
+  height: 520px;
+  width: 40%;
+  text-align: right;
+}
+.single-card {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+.card-1 { 
+  top: 0; 
+  left: 50%;
+   transform: rotate(5deg); 
+   z-index: 1; 
+  }
+.card-2 { 
+  top: 20%; 
+  left: 32%; 
+  transform: rotate(6deg);
+   z-index: 2; 
+  }
+.card-3 { 
+  top: 35%; 
+  left: 10%; 
+  transform: rotate(-8deg);
+   z-index: 3; 
+  }
+.card-4 { 
+  top: 50%;
+  left: 48%; 
+  transform: rotate(-10deg);
+  z-index: 4; }
+.card-5 { 
+  top: 58%; 
+  left: 20%;
+   transform: rotate(8deg); 
+   z-index: 5; 
+  }
+
+.single-card:hover {
+  transform: scale(1.06) rotate(0deg);
+  z-index: 20;
+}
+
+/* FEATURES SECTION*/
+.features-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f2e9;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 100px 110px 0px 110px;
+  overflow: hidden;
+  z-index: 5;
+}
+/* Right Side Heading */
+.features-header {
+  position: absolute;
+  right: 80px;
+  top: 100px;
+  text-align: center;
+  z-index:6;
+}
+.features-title {
+  font-size: 52px;
+  line-height: 1.15;
+  color: #3e2012; 
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.splash-container {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Background Image */
+.splash-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Label Badges */
+.pill-img {
+  position: absolute;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.pill-img:hover {
+  transform: scale(1.05);
+}
+.pill-1 {
+   width: 190px;
+    top: 35%; 
+    left: 130px; 
+  }            
+.pill-2 { 
+  width: 180px; 
+  top: 22%; 
+  left: 100px; 
+}           
+.pill-3 { 
+  width: 190px; 
+  top: 30%; 
+  right: 40px;
+ }           
+.pill-4 { 
+  width: 160px; 
+  bottom: 8%;  
+  left: 200px;
+ }          
+.pill-5 { 
+  width: 190px; 
+  top: 48%; 
+  right: 40px; 
+}          
+.pill-6 {
+   width: 180px; 
+   bottom: 32%; 
+   right: 20px; 
+  }        
+.pill-7 { 
+  width: 210px;
+   bottom: 9%; 
+   right: 100px; 
+  }        
+
+/* Main Section */
+.crafted-favorites {
+  position: relative;
+  background-color: #f4f3e8;
+  padding: 130px 20px 0px;
+  text-align: center;
+}
+/* Header Text */
+.section-title {
+  font-size: 38px;
+  letter-spacing: 2px;
+  color: #2b1810;
+  margin: 0;
+}
+.section-subtitle {
+  font-size: 16px;
+  color: #555555;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+/* Floating Decor Images */
+.decor-mango {
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  width: 100px;
+}
+.decor-cheese {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+}
+.decor-strawberry {
+  position: absolute;
+  top: 40px;
+  right: 100px;
+  width: 100px;
+}
+
+.products-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Base Card */
+.product-card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+/* Drink Image */
+.drink-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.product-card:hover .drink-img {
+  transform: scale(1.05);
+}
+/* Overlay Box */
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items:center;
+  color: #ffffff;
+  opacity: 0;
+  z-index: 5;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.9) 100%);
+}
+.product-card:hover .card-content {
+  opacity: 1;
+}
+/* Content Details */
+.description {
+  font-size: 12px;
+  color: #dddddd;
+  line-height: 1.3;
+  text-align: center;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.price {
+  font-size: 16px;
+  font-weight: bold;
+}
+.add-btn {
+  background-color: #d71921;
+  color: #ffffff;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* BREWBLE SECTION */
+.Brewble {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f2e9;
+  padding: 100px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.boba {
+  position: absolute;
+  left: -50px;
+  top: 60%;
+  transform: translateY(-50%) rotate(10deg);
+  width: 500px;
+  height: 650px;
+  z-index: 1;
+}
+.caramel {
+  position: absolute;
+  right: 60px;
+  top: 20%;
+  width: 280px;
+  height: auto;
+  z-index: 1;
+}
+.stands-out-header {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.stands-out-title {
+  font-size: 45px;
+  font-weight: 700;
+  color: #1a0f0b;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.c-color-italic {
+  color: #63361d;
+  font-style: italic;
+}
+.stands-out-description {
+  font-size: 15px;
+  color: #5d4638;
+  line-height: 1.6;
+}
+.stands-out-cards {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  flex-wrap: wrap;
+}
+.stand-card {
+  width: 320px;
+  background-color: #fdfbf7;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(19, 5, 5, 0.04);
+  transition: all 0.3s ease;
+}
+.stand-card:hover {
+  border-color: #63361d;
+  background-color: #ffffff;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 10px 10px rgba(99, 54, 29, 0.12);
+}
+.card-icon-wrap {
+  width: 50px;
+  height: 50px;
+  background-color: #e2cca8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.card-icon-wrap i {
+  color: #63361d;
+  font-size: 20px;
+}
+.stand-card h3 {
+  font-size: 22px;
+  color: #1a0f0b;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+.stand-card p {
+  font-size: 13px;
+  color: #6e5749;
+  line-height: 1.5;
+}
+
+
+
+/* Review SECTION */
+.reviews-section {
+  width: 100%;
+  padding: 100px 0px 0px;
+  overflow: hidden;
+  background-color: #f5f2e9;
+}
+.reviews-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.reviews-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #1a0f0b;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.reviews-subtitle {
+  font-style: italic;
+  font-size: 15px;
+  color: #5d4638;
+}
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 30px 0;
+}
+.marquee-track {
+  display: flex;
+  gap: 35px;
+  width: max-content;
+  animation: scrollMarquee 7s linear infinite;
+}
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+.review-card {
+  position: relative;
+  width: 360px;
+  height: 230px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, 
+    #efe8da 0%, 
+    #e3d5c1 35%, 
+    #a87856 70%, 
+    #5a2d18 100%
+  );
+  padding: 22px 20px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+.profile-img-wrap {
+  position: absolute;
+  left: 18px;
+  top: -22px;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.profile-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a0f0b;
+  margin: 0;
+}
+.stars {
+  display: flex;
+  gap: 4px;
+  margin: 4px 0 8px;
+}
+.stars i {
+  color: #dcb348;
+  font-size: 13px;
+}
+.card-info p {
+  font-size: 12px;
+  color: #2b1a10;
+  line-height: 1.45;
+  margin: 0;
+}
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* FOOTER STYLES */
+.footer {
+  width: 100%;
+  background-color: #63361d;
+  color: #f5f2e9;
+  padding: 60px 80px 30px;
+  margin-top:50px;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+}
+.footer-brand {
+  max-width: 280px;
+}
+.logo-wrap {
+  margin-bottom: 20px;
+}
+.footer-logo {
+  height: 60px;
+  width: auto;
+}
+.brand-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #e3d5c1;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+.col-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.footer-links {
+  list-style: none;
+}
+.footer-links li {
+  margin-bottom: 12px;
+}
+.footer-links a {
+  color: #e3d5c1;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover {
+  color: #ffffff;
+}
+.contact-info p {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: #e3d5c1;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+.contact-info i {
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 2px;
+}
+.footer-divider {
+  border: 0;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 40px 0px 25px;
+  max-width: 1200px;
+}
+/* FOOTER BOTTOM */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  font-size: 12px;
+  color: #e3d5c1;
+}
+.copyright-area {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.legal-links a {
+  color: #e3d5c1;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.2s ease;
+}
+.legal-links a:hover {
+  color: #ffffff;
+}
+/* SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+.social-icons a {
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.social-icons a:hover {
+  opacity: 0.7;
+}
+
+
+/*MOBILE MEDIA*/
+@media screen and (min-width: 300px) and (max-width:650px) {
+  .boba-drink-container {
+    width: 200px;
+    height: 250px;
+  }
+@keyframes moveCoffeeTimeline {
+  /* 1. Hero */
+  0% {
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 0.3;
+
+  }
+  /* 2. About section */
+  45% {
+    left: 48%;
+    top: 52%;
+    transform: translate(-50%, -45%) rotate(20deg) scale(1);
+    opacity: 0.3;
+
+  }
+  /* 3. Features section */
+  85% {
+    left: 50%;
+    top: 62%;
+    transform: translate(-55%, -18%) rotate(-36deg) scale(1);
+    opacity: 0.3;
+
+  }
+  /* 4. Disappear */
+  100% {
+    left: 50%;
+    top: 100%;
+    transform: translate(-40%, -40%) rotate(-39deg) scale(1);
+    opacity:0.5;
+  }
+}
+  .hero {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top {
+    padding: 15px 20px;
+    z-index:100;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .co {
+    position: fixed;
+    top: 10%;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: start;
+    background-color: #f5f2e9;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  #nav-toggle:checked ~ .co {
+    left: 0;
+  }
+  .hero-left {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    padding: 0 20px;
+    max-width: 100%;
+    text-align: center;
+  }
+  .title-bubble, 
+  .title-coffee {
+    font-size: 55px;
+  }
+  .home-description {
+    padding: 0 10px;
+  }
+  .buy-btn {
+    padding: 12px 28px;
+    margin-top: 10px;
+  }
+  .hero-right-text {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    padding: 40px 20px 20px;
+    text-align: right;
+  }
+  .tagline {
+    font-size: 15px;
+  }
+  .brown-bg {
+    width: 100%;
+    height: 50%;
+  }
+  /* 2. About Section */
+  .about-section {
+    flex-direction: column;
+    padding: 60px 20px 0;
+    min-height: auto;
+  }
+  .about-left {
+    width: 100%;
+    text-align: center;
+  }
+  .meet-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  .catchphrase {
+    font-size: 36px;
+    gap: 5px;
+    align-items: center;
+  }
+  .about-description {
+    width: 100%;
+    font-size: 14px;
+  }
+  .about-gallery {
+    width: 100%;
+    height: 380px;
+    margin-top: 40px;
+  }
+  .single-card {
+    width: 180px;
+    height: 180px;
+  }
+  .card-1 { 
+    top: 0; 
+    left: 35%;
+   }
+  .card-2 { 
+    top: 12%; 
+    left: 15%;
+   }
+  .card-3 { 
+    top: 25%; 
+    left: 0%; 
+  }
+  .card-4 { 
+    top: 35%; 
+    left: 35%; 
+  }
+  .card-5 {
+     top: 45%; 
+     left: 15%; 
+    }
+  /* 3. Features Section */
+  .features-section {
+    flex-direction: column;
+    padding: 60px 20px 0;
+    min-height: auto;
+  }
+  .features-header {
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-bottom: 20px;
+  }
+  .features-title {
+    font-size: 30px;
+  }
+  .splash-container {
+    height: 450px;
+  }
+  .pill-img {
+    transform: scale(0.7);
+  }
+  .pill-1 {
+     top: 10%;
+      left: -20px;
+     }
+  .pill-2 {
+     top: 0%;
+      left: -10px; 
+    }
+  .pill-3 {
+     top: 5%;
+      right: -20px; 
+    }
+  .pill-4 { 
+    bottom: 15%;
+     left: 10px; 
+    }
+  .pill-5 {
+     top: 35%;
+      right: -20px; 
+    }
+  .pill-6 {
+     bottom: 35%;
+      right: -20px;
+     }
+  .pill-7 { 
+    bottom: 5%; 
+    right: 10px; 
+  }
+
+  /* 4. Products Section */
+  .crafted-favorites {
+    padding: 60px 15px 0;
+  }
+  .section-title {
+    font-size: 28px;
+  }
+  .decor-mango,
+  .decor-cheese,
+  .decor-strawberry {
+    width: 50px;
+  }
+  .decor-mango { 
+    top: 15px; 
+    left: 15px; 
+  }
+  .decor-cheese {
+     top: 10px;
+     }
+  .decor-strawberry {
+     top: 15px; 
+     right: 15px; 
+    }
+
+  .products-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-card {
+    width: 100%;
+    max-width: 320px;
+    height: 380px;
+  }
+
+  /* 5. Brewble Section */
+  .Brewble {
+    padding: 60px 20px 0;
+    min-height: auto;
+  }
+  .stands-out-title {
+    font-size: 28px;
+  }
+  .stands-out-description {
+    font-size: 13px;
+  }
+  .boba {
+    width: 250px;
+    height: 400px;
+    left: -20px;
+    top: 70%;
+  }
+  .caramel {
+    width: 140px;
+    right: -20px;
+    top: 10%;
+  }
+  .stand-card {
+    padding: 25px 20px;
+  }
+
+  /* 6. Reviews & Footer Section */
+  .reviews-section {
+    padding-top: 60px;
+  }
+  .reviews-title {
+    font-size: 28px;
+  }
+  .review-card {
+    width: 290px;
+    height: 210px;
+    padding: 20px 15px 15px 65px;
+  }
+  .profile-img-wrap {
+    width: 60px;
+    height: 60px;
+    left: 10px;
+    top: -15px;
+  }
+  .card-info h3 {
+    font-size: 18px;
+  }
+  .card-info p {
+    font-size: 11px;
+  }
+  .footer {
+    padding: 40px 20px 20px;
+  }
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;       
+    gap: 30px 20px;
+  }
+  .footer-brand {
+    flex: 100%;      
+    max-width: 100%;
+  }
+  .footer-col {
+    flex: 45%;        
+  }
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;       
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+/* TABLET Media*/
+@media screen and (min-width: 651px) and (max-width: 1000px) {
+  .boba-drink-container {
+    width: 280px;
+    height: 400px;
+  }
+  .hero {
+    padding-top: 110px;
+  }
+  .top {
+    padding: 20px 40px;
+  }
+  .co {
+    gap: 20px;
+  }
+  .co a {
+    font-size: 11px;
+  }
+  .hero-left {
+    left: 4%;
+    bottom: 20%;
+    max-width: 300px;
+  }
+  .title-bubble, 
+  .title-coffee {
+    font-size: 70px;
+  }
+  .hero-right-text {
+    right: 10px;
+    bottom: 100px;
+  }
+  /* 2. About Section */
+  .about-section {
+    padding: 80px 40px 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .meet-title {
+    font-size: 38px;
+  }
+  .catchphrase {
+    font-size: 42px;
+  }
+  .about-description {
+    width: 280px;
+    font-size: 14px;
+  }
+  .about-gallery {
+    height: 420px;
+  }
+  .single-card {
+    width: 220px;
+    height: 220px;
+  }
+  /* 3. Features Section */
+  .features-section {
+    padding: 80px 40px 0;
+  }
+  .features-header {
+    right: 30px;
+    top: 80px;
+  }
+  .features-title {
+    font-size: 36px;
+  }
+  .pill-img {
+    transform: scale(0.85);
+  }
+  /* 4. Products Section */
+  .products-container {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .product-card {
+    width: 45%;
+    max-width: 280px;
+    height: 360px;
+  }
+  /* 5. Brewble Section */
+  .stands-out-cards {
+    gap: 16px;
+  }
+  .stand-card {
+    width: 45%;
+    max-width: 320px;
+  }
+  .boba {
+    width: 350px;
+    left: -80px;
+  }
+  /* 6. Footer */
+  .footer {
+    padding: 50px 40px 30px;
+  }
+  .footer-container {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .footer-brand {
+    width: 100%;
+    max-width: 100%;
+  }
+  .footer-col {
+    width: 25%;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
+/*LAPTOP Media*/
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+  .boba-drink-container {
+    width: 320px;
+    height: 460px;
+  }
+  .hero {
+    padding-top: 100px;
+    overflow-x: hidden;
+  }
+  .top {
+    padding: 20px 60px;
+  }
+  .co {
+    gap: 30px;
+  }
+  .hero-left {
+    left: 6%;
+    bottom: 15%;
+    max-width: 380px;
+  }
+  .title-bubble, 
+  .title-coffee {
+    font-size: 85px;
+  }
+  .hero-right-text {
+    right: 5%;
+    bottom: 80px;
+  }
+  .brown-bg {
+    max-width: 100%;
+    height: 100%;
+    object-position: right center;
+  }
+  /* 2. About Section */
+  .about-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 80px 40px 0;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .meet-title {
+    font-size: 42px;
+  }
+  .catchphrase {
+    font-size: 48px;
+  }
+  .about-description {
+    width: 340px;
+    font-size: 15px;
+  }
+  .about-gallery {
+    max-width: 100%;
+    height: 500px;
+    overflow: hidden;
+  }
+  .single-card {
+    width: 240px;
+    height: 240px;
+    max-width: 80%;
+  }
+  /* 3. Features Section */
+  .features-section {
+    padding: 80px 40px 0;
+    overflow: hidden;
+  }
+  .features-header {
+    right: 50px;
+    top: 60px;
+  }
+  .features-title {
+    font-size: 42px;
+  }
+  .pill-img {
+    transform: scale(0.9);
+  }
+  /* 4. Products Section */
+  .crafted-favorites {
+    padding: 80px 40px 0;
+  }
+  .products-container {
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+  .product-card {
+    width: 30%;
+    max-width: 300px;
+    height: 400px;
+  }
+  /* 5. Brewble Section */
+  .Brewble {
+    padding: 80px 40px 0;
+  }
+  .stands-out-cards {
+    gap: 20px;
+    justify-content: center;
+  }
+  .stand-card {
+    width: 30%;
+    max-width: 340px;
+  }
+  .boba {
+    width: 420px;
+    left: -60px;
+  }
+  /* 6. Footer Section */
+  .footer {
+    padding: 60px 50px 30px;
+  }
+  .footer-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .footer-brand {
+    width: 30%;
+  }
+  .footer-col {
+    width: 20%;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
